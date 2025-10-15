@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Calendar, Clock, Users, CheckCircle, Phone, ArrowRight } from 'lucide-react';
 
 const BookPage = () => {
@@ -123,6 +123,14 @@ const BookPage = () => {
     return service?.price === 'FREE' ? 'Book Free Discovery Call' : `Book ${service?.title} - ${service?.price}`;
   };
 
+  const bookingRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToBooking = () => {
+    if (bookingRef.current) {
+      bookingRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -170,7 +178,11 @@ const BookPage = () => {
                     ? 'border-yellow-500 ring-2 ring-yellow-500/30' 
                     : 'border-yellow-500/30 hover:border-yellow-400'
                 }`}
-                onClick={() => setSelectedService(service.id)}
+                onClick={() => {
+                  setSelectedService(service.id);
+                  // scroll to booking form
+                  scrollToBooking();
+                }}
               >
                 <div className="text-center mb-6">
                   <div className="flex justify-center mb-4">
@@ -215,8 +227,8 @@ const BookPage = () => {
         </div>
       </section>
 
-      {/* Booking Form */}
-      <section className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-20 px-4 lg:px-8">
+  {/* Booking Form */}
+  <section ref={bookingRef} id="booking-form" className="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-20 px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-6">
