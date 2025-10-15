@@ -15,8 +15,17 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-500"></span> 
-          <span className="ml-2 text-white"></span>
-          <img src={slclogo} className="h-30 w-28"/>
+          <button
+            onClick={() => {
+              onPageChange('home');
+              setIsMenuOpen(false);
+            }}
+            aria-label="Go to home"
+            className="flex items-center p-0 m-0 focus:outline-none"
+          >
+            <span className="ml-2 text-white sr-only">Home</span>
+            <img src={slclogo} alt="Spiritually Led Consulting logo" className="h-30 w-28 cursor-pointer" />
+          </button>
         </div>
         
         {/* Desktop Navigation */}
