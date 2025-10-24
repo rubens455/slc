@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BookPage from './pages/BookPage';
+import FreeResources from './pages/FreeResources';
 import Footer from './components/Footer';
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         return <ContactPage />;
       case 'book':
         return <BookPage />;
+      case 'free':
+        return <FreeResources />;
       default:
         return <HomePage onPageChange={handlePageChange} />;
     }

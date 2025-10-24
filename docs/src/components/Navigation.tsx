@@ -33,7 +33,8 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
           <div className="flex items-center space-x-8">
             {[
               { label: 'Home', value: 'home' },
-              { label: 'Book', value: 'book' }
+              { label: 'Book', value: 'book' },
+              { label: 'Free Resources', value: 'free' }
             ].map((item) => (
               <button
                 key={item.value}
@@ -76,7 +77,8 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
           <div className="px-4 py-4 space-y-4">
             {[
               { label: 'Home', value: 'home' },
-              { label: 'Book', value: 'book' }
+              { label: 'Book', value: 'book' },
+              { label: 'Free Resources', value: 'free' }
             ].map((item) => (
               <button
                 key={item.value}
